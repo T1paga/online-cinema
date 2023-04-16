@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 *,
 *::before,
 *::after {
@@ -37,13 +39,11 @@ body {
 	height: 100%;
 }
 html {
-	font-size: 16px; /* по умолчанию */
+	font-size: 15px;
 }
 body {
 	line-height: 1;
-	/* color: #000; */
-	/* font-family:""; */
-	font-family: 'Arimo', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 .wrapper {
 	min-height: 100%;

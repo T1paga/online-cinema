@@ -1,0 +1,12 @@
+.layout {
+	@apply flex;
+	> div:first-child {
+		@apply w-[15%];
+	}
+	> div:last-child {
+		@apply flex flex-col w-full;
+	}
+}
+
+.main {
+}
