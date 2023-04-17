@@ -1,8 +1,8 @@
 import { FC } from 'react'
 
 import styles from './Layout.module.scss'
+import Header from './header/Header'
 import Navigation from './navigation/Navigation'
-import Sidebar from './sidebar/Sidebar'
 
 export interface LayoutProps {
 	children: React.ReactNode
@@ -11,9 +11,9 @@ export interface LayoutProps {
 const Layout: FC<LayoutProps> = ({ children }) => {
 	return (
 		<div className={styles.layout}>
-			<Sidebar />
+			<Navigation />
 			<div className={styles.main}>
-				<Navigation />
+				<Header />
 				{children}
 			</div>
 		</div>

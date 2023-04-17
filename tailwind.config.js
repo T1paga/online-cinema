@@ -1,44 +1,59 @@
 /** @type {import('tailwindcss').Config} */
-// module.exports = {
-//   content: [
-//     './src/pages/**/*.{js,ts,jsx,tsx}',
-//     './src/components/**/*.{js,ts,jsx,tsx}',
-//     './src/app/**/*.{js,ts,jsx,tsx}',
-//   ],
-//   theme: {
-//     extend: {
-//       backgroundImage: {
-//         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-//         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-//       },
-//     },
-//   },
-//   plugins: [],
-// };
 
-const colors = require('tailwindcss/colors');
-const plugin = require('tailwindcss/plugin');
-
-const primary = '#E30B13';
+const colors = require('tailwindcss/colors')
+const plugin = require('tailwindcss/plugin')
 
 module.exports = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/app/**/*.{js,ts,jsx,tsx}',
-  ],
-  theme: {
-    colors: {
-      primary,
-      black: colors.black,
-      white: colors.white,
-      transparent: colors.transparent,
-    },
-    extends: {
-      fontSize: {
-        '2lg': '1.38rem',
-      },
-    },
-  },
-  plugins: [],
-};
+	content: [
+		'./src/pages/**/*.{js,ts,jsx,tsx}',
+		'./src/components/**/*.{js,ts,jsx,tsx}',
+		'./src/app/**/*.{js,ts,jsx,tsx}',
+	],
+	theme: {
+		colors: {
+			transparent: colors.transparent,
+			black: colors.black,
+			white: '#E8E8E8',
+			active: '#3DD2CC',
+			semiActive: 'rgba(61, 210, 204, 0.4)',
+			gray: {
+				100: '#666666', //светло-серый текст
+				200: '#212121', // темный фон
+				300: '#191919', // сильно темный фон
+			},
+		},
+	},
+	plugins: [
+		require('@tailwindcss/forms'),
+		require('@tailwindcss/aspect-ratio'),
+		plugin(({ addUtilities }) => {
+			addUtilities({
+				'.flex-center-between': {
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'space-between',
+				},
+				'.flex-center': {
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+				},
+				'.flex-start': {
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'start',
+				},
+				'.flex-center-between': {
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'space-between',
+				},
+				'.image-like-bg': {
+					objectPosition: 'center',
+					objectFit: 'cover',
+					pointerEvents: 'none',
+				},
+			})
+		}),
+	],
+}

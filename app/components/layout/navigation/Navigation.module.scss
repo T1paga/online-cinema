@@ -1,0 +1,58 @@
+.navigations {
+	@apply mb-[69px] flex-center flex-col max-w-[350px] fixed top-0 bottom-0;
+}
+
+.navigations::-webkit-scrollbar {
+	width: 0;
+}
+
+.tickets {
+	@apply w-[170px] h-[240px] mb-[44px] relative;
+
+	> div:first-child {
+		@apply h-[30px] bg-transparent;
+		div {
+			background: rgba(61, 210, 204, 0.4);
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			@apply absolute top-0 w-[60px] h-[60px] rounded-full z-20;
+			left: calc(50% - 30px);
+
+			img {
+				@apply absolute;
+				left: calc(50% - 17.5px);
+				top: calc(50% - 17.5px);
+			}
+		}
+	}
+
+	> div:last-child {
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+		@apply h-[210px] bg-gray-300 rounded-[20px] pt-[42px] px-[13px];
+
+		h4 {
+			color: rgba(232, 232, 232, 0.8);
+			@apply font-semibold text-[16px] leading-[22px] mb-[9px];
+		}
+		p {
+			@apply text-gray-100 font-medium text-[12px] leading-[18px] mb-[8px];
+		}
+		button {
+			background: rgba(61, 210, 204, 0.4);
+			box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+			text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+			@apply w-[112px] mx-auto font-medium text-active
+				text-[12px] leading-[18px] py-[6px] rounded-[30px] flex-center mb-[44px];
+		}
+	}
+}
+
+.logout {
+	@apply mb-[69px] w-full;
+}
+
+.openClose {
+	img {
+		@apply mr-5;
+	}
+	@apply flex-center-between;
+}

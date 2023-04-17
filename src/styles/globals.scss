@@ -44,6 +44,7 @@ html {
 body {
 	line-height: 1;
 	font-family: 'Poppins', sans-serif;
+	@apply bg-gray-300 text-white;
 }
 .wrapper {
 	min-height: 100%;

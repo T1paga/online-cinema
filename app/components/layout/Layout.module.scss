@@ -1,12 +1,10 @@
 .layout {
-	@apply flex;
+	@apply flex w-screen mx-auto absolute top-0 bottom-0;
 	> div:first-child {
-		@apply w-[15%];
+		border-radius: 0px 45px 45px 0px;
+		@apply overflow-y-scroll w-[15%] bg-gray-200  h-screen flex-start pt-[56px] overflow-hidden min-w-[180px] max-w-[250px];
 	}
 	> div:last-child {
-		@apply flex flex-col w-full;
+		@apply flex flex-col w-[85%] h-screen;
 	}
-}
-
-.main {
 }
