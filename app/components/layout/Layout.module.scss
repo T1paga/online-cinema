@@ -1,10 +1,10 @@
 .layout {
-	@apply flex w-screen mx-auto absolute top-0 bottom-0;
+	@apply flex w-screen mx-auto;
 	> div:first-child {
 		border-radius: 0px 45px 45px 0px;
-		@apply overflow-y-scroll w-[15%] bg-gray-200  h-screen flex-start pt-[56px] overflow-hidden min-w-[180px] max-w-[250px];
+		@apply overflow-y-scroll w-[190px] xl:w-[15%] 2xl:w-[230px] bg-gray-200  h-screen flex-start pt-[56px] overflow-hidden;
 	}
 	> div:last-child {
-		@apply flex flex-col w-[85%] h-screen;
+		@apply flex flex-col h-screen absolute top-0 left-[190px] xl:left-[15%] 2xl:left-[230px];
 	}
 }
