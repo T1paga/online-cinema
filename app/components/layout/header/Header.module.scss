@@ -1,0 +1,23 @@
+.header {
+	@apply absolute flex-center-between top-0 left-0 gap-[145px]
+	w-[calc(100vw-190px)] xl:w-[calc(100vw-15%)] 2xl:w-[calc(100vw-230px)];
+	padding: 44px 51px 40px 37px;
+}
+
+.leftHeader {
+	@apply flex-center gap-[24px];
+	div {
+		@apply flex-center w-[50px] h-[50px];
+	}
+}
+
+.notification {
+	@apply w-[50px] h-[50px] rounded-full bg-gray-200 flex-center;
+}
+
+.userIcon {
+	@apply w-[50px] h-[50px] rounded-full bg-gray-200;
+	img {
+		@apply object-cover w-[99%] h-[99%] rounded-full;
+	}
+}

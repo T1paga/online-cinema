@@ -1,5 +1,5 @@
 .layout {
-	@apply flex w-screen mx-auto;
+	@apply flex w-screen mx-auto relative;
 	> div:first-child {
 		border-radius: 0px 45px 45px 0px;
 		@apply overflow-y-scroll w-[190px] xl:w-[15%] 2xl:w-[230px] bg-gray-200  h-screen flex-start pt-[56px] overflow-hidden;
@@ -7,4 +7,15 @@
 	> div:last-child {
 		@apply flex flex-col h-screen absolute top-0 left-[190px] xl:left-[15%] 2xl:left-[230px];
 	}
+}
+
+.main {
+	position: relative;
+	&:last-child {
+		@apply absolute top-[134px] w-[calc(100vw-190px)] xl:w-[calc(100vw-15%)] 2xl:w-[calc(100vw-230px)];
+	}
+}
+
+.childrenBlock {
+	@apply absolute top-[134px] w-[calc(100vw-190px)] xl:w-[calc(100vw-15%)] 2xl:w-[calc(100vw-230px)];
 }

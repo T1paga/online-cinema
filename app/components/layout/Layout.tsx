@@ -14,7 +14,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
 			<Navigation />
 			<div className={styles.main}>
 				<Header />
-				{children}
+				<div className={styles.childrenBlock}>{children}</div>
 			</div>
 		</div>
 	)
