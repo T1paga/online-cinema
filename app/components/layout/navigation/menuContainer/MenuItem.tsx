@@ -7,7 +7,7 @@ import styles from './Menu.module.scss'
 type Props = {
 	children: ReactNode
 	title: string
-	path: string
+	path?: string
 }
 
 const MenuItem: FC<Props> = (props: Props) => {

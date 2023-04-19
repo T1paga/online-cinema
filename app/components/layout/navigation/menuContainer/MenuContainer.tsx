@@ -3,6 +3,7 @@ import { BiCalendar, BiCameraMovie, BiFilm, BiHome } from 'react-icons/bi'
 
 import styles from './Menu.module.scss'
 import MenuItem from './MenuItem'
+import GenreMenu from './genres/GenreMenu'
 
 type MenuItemData = {
 	icon: React.ReactNode
@@ -41,6 +42,7 @@ const MenuContainer: FC = () => {
 					{item.icon}
 				</MenuItem>
 			))}
+			<GenreMenu />
 		</ul>
 	)
 }

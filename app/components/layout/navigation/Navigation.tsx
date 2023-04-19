@@ -2,10 +2,10 @@ import { FC, useState } from 'react'
 import { BiArrowFromLeft, BiArrowFromRight } from 'react-icons/bi'
 import 'simplebar-react/dist/simplebar.min.css'
 
-import Logo from './Logo'
-import Logout from './Logout'
 import styles from './Navigation.module.scss'
-import Tickets from './Tickets'
+import Tickets from './ticket/Tickets'
+import Logo from './logo/Logo'
+import Logout from './logout/Logout'
 import MenuContainer from './menuContainer/MenuContainer'
 
 const Navigation: FC = () => {
