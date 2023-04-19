@@ -3,7 +3,7 @@ import { FC } from 'react'
 
 import Ticket from '@/assets/images/Ticket.svg'
 
-import styles from './Navigation.module.scss'
+import styles from '../Navigation.module.scss'
 
 type Props = {}
 
