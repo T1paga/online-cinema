@@ -1,0 +1,80 @@
+.categories {
+	@apply flex flex-col mr-[51px] max-w-[254px];
+
+	.headers {
+		@apply flex-center gap-[56px] mb-[33px];
+		h2 {
+			@apply text-white font-medium text-[20px] leading-[30px];
+		}
+		h3 {
+			@apply text-gray-100 font-medium text-[14px] leading-[21px];
+		}
+	}
+
+	.menu {
+		@apply bg-gray-200 rounded-[30px] px-[22px] py-[15px];
+
+		label {
+			@apply flex-center-between pb-[9px] border-b-[2px] border-solid border-[#6666664D] relative text-white font-medium text-[15px] leading-[22px];
+
+			input {
+				display: none; /* <--скрываем дефолтный чекбокс */
+			}
+
+			span {
+				@apply bg-active;
+				height: 20px;
+				width: 20px;
+				border: 1px solid gray;
+				display: inline-block;
+				position: relative;
+				border-radius: 2px;
+				padding: 3px;
+			}
+
+			[type='checkbox']:checked + span:before {
+				content: '\2714';
+				position: absolute;
+				top: -1.5px;
+				left: 0;
+				font-size: 20px;
+				color: #191919;
+			}
+
+			[type='checkbox']:not(:checked):hover + span {
+				@apply border-active bg-semiActive;
+			}
+		}
+	}
+}
+
+.headers {
+}
+
+.menu {
+}
+
+// /* Dafault */
+// .myLabel input[type='checkbox'] {
+// 	@apply bg-gray-100 w-[20px] h-[20px];
+// }
+
+// /* Focus */
+// .myLabel input[type='checkbox']:focus {
+// 	@apply border-[#999] bg-semiActive;
+// 	box-shadow: none;
+// }
+
+// /* Checked */
+// .myLabel input[type='checkbox']:checked {
+// 	@apply bg-active;
+// }
+
+// /* Disabled */
+// .myLabel input[type='checkbox']:disabled {
+// 	@apply bg-active;
+// }
+
+// .myLabel label input[type='checkbox']:disabled:checked {
+// 	@apply bg-active;
+// }

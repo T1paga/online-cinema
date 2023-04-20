@@ -1,6 +1,10 @@
 import { FC } from 'react'
 
+import Categories from '@/components/categories/Categories'
+
 import { Meta } from '@/utils/meta/Meta'
+
+import styles from './Home.module.scss'
 
 const Home: FC = () => {
 	return (
@@ -8,7 +12,10 @@ const Home: FC = () => {
 			title="Watch movies online"
 			description="Watch MovieApp movies and TV shows online or stream right to your browser."
 		>
-			<h1>Home page</h1>
+			<div className={styles.home}>
+				<div className={styles.mainContent}></div>
+				<Categories />
+			</div>
 		</Meta>
 	)
 }
