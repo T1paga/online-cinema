@@ -1,0 +1,31 @@
+.list {
+	h2 {
+		@apply text-[20px] leading-[30px] font-bold mb-5;
+	}
+}
+
+.item {
+	@apply flex gap-4 mb-5;
+	a {
+		@apply w-1/3;
+	}
+
+	.info {
+		@apply w-2/3 flex flex-col;
+		.about {
+			@apply flex flex-col flex-1;
+			.title {
+				@apply truncate text-[16px] mb-2;
+			}
+			.genres {
+			}
+		}
+		.rating {
+			@apply flex justify-start items-end text-[25px] font-bold leading-[35px];
+		}
+	}
+}
+
+.more {
+	@apply w-full h-[40px] bg-active;
+}
