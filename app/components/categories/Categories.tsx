@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 import styles from './Categories.module.scss'
+import GenreMenu from './genres/GenreMenu'
 
 type Props = {}
 
@@ -12,17 +13,7 @@ const Categories: FC = (props: Props) => {
 				<h3>Uncheck all</h3>
 			</div>
 			<div className={styles.menu}>
-				<label id="checkbox" className={styles.myLabel}>
-					<input
-						type="checkbox"
-						name="checkbox"
-						value="yes"
-						id="checkbox"
-						className={styles.customCheckbox}
-					/>
-					Category
-					<span></span>
-				</label>
+				<GenreMenu />
 			</div>
 		</div>
 	)

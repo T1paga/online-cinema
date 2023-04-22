@@ -1,0 +1,26 @@
+.mySearch {
+	flex: 1 1 auto;
+
+	@apply flex bg-transparent grow shrink w-full relative transition duration-500 ease-out;
+
+	input {
+		box-shadow: 0px 1px 2px rgba(55, 31, 31, 0.2);
+		@apply hover:border-solid hover:border-2 hover:border-semiActive transition duration-500 ease-out w-full h-[45px] pl-[100px] flex-initial rounded-[30px] bg-gray-200 border-transparent text-gray-100 font-medium text-[20px] leading-[25px];
+	}
+
+	svg {
+		@apply absolute left-[41px];
+		top: calc(50% - 17.5px);
+	}
+}
+
+.inputWindow {
+	outline: 0;
+	border: 0;
+	font-size: 50px;
+
+	&:focus {
+		@apply border-none;
+		--tw-ring-color: #3dd2cc !important;
+	}
+}

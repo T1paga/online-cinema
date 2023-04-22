@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 
 import { GenreService } from '@/services/genre.service'
 
-import { IMenuItem } from '../menu.interface'
+import { IMenuItem } from '../../layout/navigation/menuContainer/menu.interface'
 
 export const usePopularGenres = () => {
 	const queryData = useQuery(

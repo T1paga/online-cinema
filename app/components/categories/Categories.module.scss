@@ -14,8 +14,8 @@
 	.menu {
 		@apply bg-gray-200 rounded-[30px] px-[22px] py-[15px];
 
-		label {
-			@apply flex-center-between pb-[9px] border-b-[2px] border-solid border-[#6666664D] relative text-white font-medium text-[15px] leading-[22px];
+		.myLabel {
+			@apply mb-[10px] flex-center-between pb-[9px] border-b-[2px] border-solid border-[#6666664D] relative text-white font-medium text-[15px] leading-[22px];
 
 			input {
 				display: none; /* <--скрываем дефолтный чекбокс */
@@ -28,8 +28,9 @@
 				border: 1px solid gray;
 				display: inline-block;
 				position: relative;
-				border-radius: 2px;
+				border-radius: 3px;
 				padding: 3px;
+				@apply transition duration-500 ease-out;
 			}
 
 			[type='checkbox']:checked + span:before {

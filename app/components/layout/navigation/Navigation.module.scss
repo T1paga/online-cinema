@@ -1,5 +1,5 @@
 .navigations {
-	@apply flex flex-col mb-[69px] flex-center flex-col max-w-[350px] fixed top-0 bottom-0;
+	@apply flex flex-col mb-[69px] flex-center flex-col max-w-[350px] fixed top-0 bottom-0 transition duration-300 ease-out;
 }
 
 .navigations::-webkit-scrollbar {
