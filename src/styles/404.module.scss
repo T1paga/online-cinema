@@ -1,0 +1,9 @@
+.error {
+	@apply text-[30px] leading-[40px] mx-auto w-full text-center;
+	h2 {
+		@apply mb-[90px];
+	}
+	div {
+		@apply flex flex-center gap-[50px];
+	}
+}
