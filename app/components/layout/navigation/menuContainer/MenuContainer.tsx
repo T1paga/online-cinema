@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { BiCalendar, BiCameraMovie, BiFilm, BiHome } from 'react-icons/bi'
 
-import GenreMenu from '@/components/categories/genres/GenreMenu'
+import GenreMenu from '@/components/categories/genres/genreMenu/GenreMenu'
 
 import styles from './Menu.module.scss'
 import MenuItem from './MenuItem'

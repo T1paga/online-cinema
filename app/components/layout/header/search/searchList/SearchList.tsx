@@ -14,11 +14,9 @@ const SearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
 				movies.map((movie) => (
 					<Link key={movie._id} href={getMovieUrl(movie.slug)}>
 						<Image
-							src={
-								'https://mf-static-ssl.more.tv/jackal/2606805/f14655b7-5f8e-4639-a147-4dce63d1b950_W250_H355.webp'
-							}
-							width={50}
-							height={50}
+							src={movie.poster}
+							width={60}
+							height={60}
 							alt={movie.title}
 							draggable={false}
 						/>

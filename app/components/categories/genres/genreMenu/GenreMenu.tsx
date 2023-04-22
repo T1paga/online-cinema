@@ -1,10 +1,7 @@
 import { FC } from 'react'
-import { BiFilm } from 'react-icons/bi'
 
-import MenuItem from '../../layout/navigation/menuContainer/MenuItem'
-import styles from '../Categories.module.scss'
-
-import { usePopularGenres } from './usePopularGenres'
+import styles from '../../Categories.module.scss'
+import { usePopularGenres } from '../usePopularGenres'
 
 type Props = {}
 
@@ -18,9 +15,6 @@ const GenreMenu: FC = (props: Props) => {
 	) : (
 		<div className="">
 			{data?.map((genre) => (
-				// <MenuItem key={genre.title} title={genre.title}>
-				// 	<BiFilm size={25} color="#666666" />
-				// </MenuItem>
 				<label key={genre.title} id="checkbox" className={styles.myLabel}>
 					<input
 						type="checkbox"
