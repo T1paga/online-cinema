@@ -15,6 +15,7 @@ module.exports = {
 			black: colors.black,
 			white: '#E8E8E8',
 			active: '#3DD2CC',
+			danger: colors.red,
 			semiActive: 'rgba(61, 210, 204, 0.4)',
 			gray: {
 				100: '#666666', //светло-серый текст

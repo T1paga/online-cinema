@@ -1,5 +1,5 @@
 .categories {
-	@apply flex flex-col mr-[51px] max-w-[254px];
+	@apply flex flex-col mr-[51px] max-w-[254px] relative;
 
 	.headers {
 		@apply flex-center gap-[56px] mb-[33px];

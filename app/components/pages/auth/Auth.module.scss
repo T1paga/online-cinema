@@ -1,0 +1,33 @@
+.wrapper {
+	@apply w-full flex justify-between items-start;
+	> form {
+		@apply w-1/2 flex-center flex-col items-start;
+		h2 {
+			@apply font-medium text-[35px] leading-[52px];
+		}
+		p {
+			@apply text-[19px] leading-[28px] mb-5;
+			color: rgba(186, 186, 186, 0.7);
+		}
+	}
+
+	img {
+		@apply rounded-lg px-5;
+	}
+}
+
+.buttons {
+	@apply w-full max-w-[400px] rounded-[15px] text-gray-300 text-center font-semibold flex-center;
+
+	> button {
+		@apply text-gray-300 text-center font-semibold py-[14px] w-1/2;
+		background: rgba(254, 254, 254, 0.96);
+
+		&:first-child {
+			@apply bg-active rounded-l-2xl;
+		}
+		&:last-child {
+			@apply rounded-r-2xl opacity-90 hover:opacity-100 transition-opacity;
+		}
+	}
+}

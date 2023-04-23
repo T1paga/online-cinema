@@ -12,6 +12,7 @@ type Props = {}
 const MovieList: FC<{ list: IMovieList }> = ({
 	list: { link, movies, title },
 }) => {
+	console.log('movies', movies)
 	return (
 		<div className={styles.list}>
 			<h2>Popular movies</h2>
