@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 
 import Button from '@/components/ui/form-elements/Button'
 
+import { useActions } from '@/hooks/useActions'
 import { useAuth } from '@/hooks/useAuth'
 
 import spider from '@/assets/spider.webp'
@@ -22,9 +23,7 @@ export interface IAuthInput {
 const Auth: FC = () => {
 	useAuthRedirect()
 
-	// const { isLoading } = useAuth()
-
-	//const isLoading = false
+	const { isLoading } = useAuth()
 
 	const [type, setType] = useState<'login' | 'register'>('login')
 
@@ -37,12 +36,7 @@ const Auth: FC = () => {
 		mode: 'onChange',
 	})
 
-	const login = (data: any) => {
-		console.table(data)
-	}
-	const register = (data: any) => {
-		console.table(data)
-	}
+	const { login, register } = useActions()
 
 	const onSubmit: SubmitHandler<IAuthInput> = (data) => {
 		if (type === 'login') login(data)
@@ -64,10 +58,18 @@ const Auth: FC = () => {
 					/>
 
 					<div className={styles.buttons}>
-						<Button type="submit" onClick={() => setType('login')}>
+						<Button
+							type="submit"
+							onClick={() => setType('login')}
+							disabled={isLoading}
+						>
 							Login
 						</Button>
-						<Button type="submit" onClick={() => setType('register')}>
+						<Button
+							type="submit"
+							onClick={() => setType('register')}
+							disabled={isLoading}
+						>
 							Register
 						</Button>
 					</div>

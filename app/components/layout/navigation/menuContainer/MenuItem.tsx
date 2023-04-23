@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { FC, ReactNode, useEffect } from 'react'
+import { FC, ReactNode } from 'react'
 
 import styles from './Menu.module.scss'
 

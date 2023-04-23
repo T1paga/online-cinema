@@ -1,5 +1,5 @@
 .navigations {
-	@apply flex flex-col mb-[69px] flex-center flex-col max-w-[350px] fixed top-0 bottom-0 transition duration-300 ease-out;
+	@apply pb-10 flex flex-col mb-[69px] flex-center flex-col max-w-[350px] fixed top-0 bottom-0 transition duration-300 ease-out;
 }
 
 .navigations::-webkit-scrollbar {
@@ -46,8 +46,8 @@
 	}
 }
 
-.logout {
-	@apply mb-[69px] w-full;
+.navButton {
+	@apply w-full;
 }
 
 .openClose {
@@ -60,3 +60,7 @@
 .navigationsClose {
 	@apply w-[35px] sm:w-[40px] md:w-[50px] bg-gray-200 rounded-2xl flex-center hover:opacity-50 rounded-l-lg;
 }
+
+// .authMenu {
+// 	@apply mb-[90px];
+// }

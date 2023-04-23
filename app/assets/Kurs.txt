@@ -1,0 +1,498 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<iostream>
+#include<vector>
+#include<fstream>
+#include<string>
+#include<algorithm>
+#include<math.h>
+
+using namespace std;
+
+using ll = long long;
+
+ll gcd(ll a, ll b)
+{
+	if (a % b == 0) return b;
+	if (b % a == 0) return a;
+	if (a > b) return gcd(a % b, b);
+	return gcd(a, b % a);
+}
+
+ll lcm(ll a, ll b)
+{
+	return (a * b) / gcd(a, b);
+}
+
+class simp_frac
+{
+public:
+	ll num;
+	ll den;
+
+	simp_frac() : num(0), den(1) {}
+	simp_frac(ll _num) : num(_num), den(1) {}
+	simp_frac(ll _num, ll _den) : num(_num), den(_den) {}
+
+	simp_frac operator+(simp_frac other)
+	{
+		ll LCM = lcm(den, other.den);
+		ll Num = num * LCM / den + other.num * LCM / other.den;
+		if (Num == 0) return simp_frac(0, 1);
+		else
+		{
+			ll GCD = gcd(fabs(Num), LCM);
+			return simp_frac(Num / GCD, LCM / GCD);
+		}
+	}
+	simp_frac operator-(simp_frac other)
+	{
+		return *this + simp_frac(-other.num, other.den);
+	}
+	simp_frac operator*(simp_frac other)
+	{
+		if (num == 0 || other.num == 0) return simp_frac(0);
+		ll GCD_a = gcd(fabs(num), fabs(other.den));
+		ll GCD_b = gcd(fabs(other.num), fabs(den));
+		return simp_frac((num / GCD_a) * (other.num / GCD_b), (den / GCD_b) * (other.den / GCD_a));
+	}
+	simp_frac operator/(simp_frac other)
+	{
+		if (other.num < 0) return *this * simp_frac(-other.den, -other.num);
+		else return *this * simp_frac(other.den, other.num);
+	}
+	bool operator<(simp_frac other)
+	{
+		long double d1 = num * other.den, d2 = other.num * den;
+		if (d1 < d2) return true;
+		else return false;
+	}
+	bool operator>(simp_frac other)
+	{
+		return other < *this;
+	}
+
+	void print()
+	{
+		if (this->den == 1) printf("%6lli%-7llc", this->num, ' ');
+		else printf("%6lli/%-6lli", this->num, this->den);
+	}
+};
+
+void printMatr(vector< vector<simp_frac> > A, vector<simp_frac> B)
+{
+	for (ll i = 0; i < A.size(); i++)
+	{
+		for (ll j = 0; j < A[i].size(); j++) A[i][j].print();
+		printf(" | ");
+		B[i].print();
+		printf("\n");
+	}
+	printf("\n");
+}
+
+void printMTable(vector< vector<simp_frac> > A, vector<simp_frac> B, vector<ll> setBasic, vector<ll> Ind, vector<simp_frac> Z, vector<simp_frac> M = vector<simp_frac>(0))
+{
+	ll n = A.size();
+	ll m = A[0].size();
+	printf("%10s%-3c | ", "б.п.", ' ');
+	printf("%6s%-7c | ", "1", ' ');
+	for (ll j = 0; j < m; j++) printf("%5cx%-7lli", ' ', Ind[j] + 1);
+	printf("\n");
+	for (ll j = 0; j < (m + 2) * 13 + 6; j++) printf("-");
+	printf("\n");
+	for (ll i = 0; i < n; i++)
+	{
+		printf("%6cx%-6lli | ", ' ', setBasic[i] + 1);
+		B[i].print();
+		printf(" | ");
+		for (ll j = 0; j < m; j++) A[i][j].print();
+		printf("\n");
+	}
+	for (ll j = 0; j < (m + 2) * 13 + 6; j++) printf("-");
+	printf("\n");
+	printf("%7c%-6c | ", 'Z', ' ');
+	Z[m].print();
+	printf(" | ");
+	for (ll j = 0; j < m; j++)
+	{
+		Z[j].num *= -1;
+		Z[j].print();
+	}
+	if (M.size() != 0)
+	{
+		printf("\n");
+		for (ll j = 0; j < (m + 2) * 13 + 6; j++) printf("-");
+		printf("\n");
+		printf("%7c%-6c | ", 'M', ' ');
+		M[m].print();
+		printf(" | ");
+		for (ll j = 0; j < m; j++) M[j].print();
+	}
+	printf("\n\n");
+}
+
+void printSolution(vector<simp_frac> B, vector<ll> setBasic, simp_frac Zm, ll m)
+{
+	ll ind;
+	vector<ll>::iterator it;
+	printf("Z(");
+	for (ll j = 0; j < m; j++)
+	{
+		it = find(setBasic.begin(), setBasic.end(), j);
+		if (it == setBasic.end()) printf("0");
+		else
+		{
+			ind = it - setBasic.begin();
+			if (B[ind].den != 1) printf("%lli/%lli", B[ind].num, B[ind].den);
+			else printf("%lli", B[ind].num);
+		}
+		if (j != m - 1) printf(", ");
+	}
+	if (Zm.den != 1) printf(")=%lli/%lli;\n\n", Zm.num, Zm.den);
+	else printf(")=%lli;\n\n", Zm.num);
+}
+
+void calculateMatr(vector< vector<simp_frac> >& A, vector<simp_frac>& B, ll k, ll s)
+{
+	simp_frac temp = A[k][s];
+	simp_frac temp2;
+	for (ll j = 0; j < A[k].size(); j++)
+	{
+		A[k][j] = A[k][j] / temp;
+	}
+	B[k] = B[k] / temp;
+	for (ll i = 0; i < A.size(); i++)
+	{
+		if (i == k) continue;
+		temp2 = A[i][s];
+		for (ll j = 0; j < A[k].size(); j++)
+		{
+			A[i][j] = A[i][j] - A[k][j] * temp2;
+		}
+		B[i] = B[i] - B[k] * temp2;
+	}
+}
+
+int checkMatr(vector< vector<simp_frac> >& A, vector<simp_frac>& B)
+{
+	int er = 0;
+	bool flag;
+	for (ll i = 0; i < A.size(); i++)
+	{
+		flag = true;
+		for (ll j = 0; j < A[0].size(); j++)
+		{
+			if (A[i][j].num != 0)
+			{
+				flag = false;
+				break;
+			}
+		}
+		if (flag)
+		{
+			if (B[i].num == 0)
+			{
+				er++;
+				B.erase(B.begin() + i);
+				A[i].clear();
+				A.erase(A.begin() + i);
+				i--;
+			}
+			else
+			{
+				return -1;
+			}
+		}
+	}
+	return er;
+}
+
+int JordanGauss(vector< vector<simp_frac> >& A, vector<simp_frac>& B, vector<ll>& setBasic)
+{
+	vector<simp_frac> swap;
+	simp_frac temp_b;
+	int er;
+	ll r = B.size(), k = 0, s = 0;
+	while (k < r)
+	{
+		for (ll i = k; i < B.size(); i++)
+		{
+			if (A[i][s].num != 0)
+			{
+				setBasic.push_back(s);
+				swap = A[i];
+				A[i] = A[k];
+				A[k] = swap;
+				temp_b = B[i];
+				B[i] = B[k];
+				B[k] = temp_b;
+				calculateMatr(A, B, k, s);
+				er = checkMatr(A, B);
+				if (er == -1)
+				{
+					printMatr(A, B);
+					printf("System hasn't solution\n");
+					return -1;
+				}
+				else r -= er;
+				k++;
+				break;
+			}
+		}
+		s++;
+	}
+	printMatr(A, B);
+	return r;
+}
+
+void createMTask(vector< vector<simp_frac> >& A, vector<simp_frac>& B, vector<simp_frac>& Z, vector<simp_frac>& M, vector<ll>& setBasic)
+{
+	ll n = A.size();
+	ll m = A[0].size();
+	ll col, i0, count = 0;
+	vector<bool> varRows(n, false);
+	simp_frac temp;
+	for (ll i = 0; i < n; i++)
+	{
+		if (B[i] < 0)
+		{
+			varRows[i] = true;
+			count++;
+		}
+	}
+	ll k = 0;
+	for (ll i = 0; i < varRows.size(); i++)
+	{
+		if (varRows[i])
+		{
+			Z.push_back(simp_frac(0));
+			M.push_back(simp_frac(1));
+			setBasic[i] = k + m;
+			k++;
+		}
+	}
+	Z.push_back(simp_frac(0));
+	M.push_back(simp_frac(0));
+	k = 0;
+	for (ll i = 0; i < n; i++)
+	{
+		if (varRows[i])
+		{
+			for (ll j = 0; j < m; j++) A[i][j].num *= -1;
+			B[i].num *= -1;
+			for (ll j = 0; j < count; j++)
+			{
+				if (j == k) A[i].push_back(simp_frac(1));
+				else A[i].push_back(simp_frac(0));
+			}
+			k++;
+		}
+		else for (ll j = 0; j < count; j++) A[i].push_back(simp_frac(0));
+	}
+	m += count;
+	for (ll i = 0; i < n; i++)
+	{
+		temp = Z[setBasic[i]];
+		for (ll j = 0; j < m; j++) Z[j] = Z[j] - temp * A[i][j];
+		Z[m] = Z[m] + temp * B[i];
+		Z[setBasic[i]] = simp_frac(0);
+		temp = M[setBasic[i]];
+		for (ll j = 0; j < m; j++) M[j] = M[j] - temp * A[i][j];
+		M[m] = M[m] + temp * B[i];
+		M[setBasic[i]] = simp_frac(0);
+	}
+}
+
+void calculateMTable(vector< vector<simp_frac> >& A, vector<simp_frac>& B, vector<simp_frac>& Z, vector<simp_frac>& M, ll k, ll s)
+{
+	calculateMatr(A, B, k, s);
+	simp_frac temp = Z[s];
+	ll n = Z.size() - 1;
+	for (ll j = 0; j < n; j++)
+	{
+		Z[j] = Z[j] - A[k][j] * temp;
+	}
+	Z[n] = Z[n] + B[k] * temp;
+	if (M.size() != 0)
+	{
+		simp_frac temp = M[s];
+		for (ll j = 0; j < n; j++)
+		{
+			M[j] = M[j] - A[k][j] * temp;
+		}
+		M[n] = M[n] + B[k] * temp;
+	}
+}
+
+
+ll nextSolution(vector< vector<simp_frac> > A, vector<simp_frac> B, ll s)
+{
+	ll* k = NULL;
+	for (ll i = 0; i < B.size(); i++)
+	{
+		if (A[i][s].num > 0)
+		{
+			if (k == NULL) k = new ll(i);
+			else if ((B[i] / A[i][s]) < (B[*k] / A[*k][s])) *k = i;
+		}
+	}
+	if (k == NULL)
+	{
+		printf("System has infinity value;\n\n");
+		return -1;
+	}
+	return *k;
+}
+
+bool checkMString(vector<simp_frac> M)
+{
+	for (ll i = 0; i < M.size(); i++)
+	{
+		if (M[i].num != 0) return true;
+	}
+	return false;
+}
+
+void MTable(vector< vector<simp_frac> >& A, vector<simp_frac>& B, vector<simp_frac>& Z, vector<simp_frac>& M, vector<ll>& setBasic, ll m0)
+{
+	bool Mflag = true;
+	ll n = A.size();
+	ll m = A[0].size();
+	ll k = 0, s = 0, s0;
+	ll* col = NULL;
+	ll countSol;
+	vector<ll> Ind(m);
+	for (ll j = 0; j < m; j++) Ind[j] = j;
+
+	printMTable(A, B, setBasic, Ind, Z, M);
+	while (true)
+	{
+		col = NULL;
+		countSol = 0;
+		if (Mflag)
+		{
+			Mflag = checkMString(M);
+			if (!Mflag) M = vector<simp_frac>(0);
+		}
+		if (Mflag)
+		{
+			for (ll j = 0; j < m; j++)
+			{
+				if (M[j].num < 0)
+				{
+					if (col == NULL) col = new ll(j);
+					else if (M[*col] > M[j]) *col = j;
+				}
+			}
+		}
+		else
+		{
+			for (ll j = 0; j < m; j++)
+			{
+				if (-Z[j].num < 0)
+				{
+					if (col == NULL) col = new ll(j);
+					else if (Z[*col] < Z[j]) *col = j;
+				}
+				else if (Z[j].num == 0) countSol++;
+			}
+		}
+		if (col != NULL)
+		{
+			s = *col;
+			k = nextSolution(A, B, s);
+			if (k == -1) return;
+			calculateMTable(A, B, Z, M, k, s);
+			for (ll j = 0; j < Ind.size(); j++) if (Ind[j] == setBasic[k])
+			{
+				s0 = j;
+				break;
+			}
+			if (Mflag && s0 >= m0)
+			{
+				for (ll i = 0; i < n; i++) A[i].erase(A[i].begin() + s0);
+				Z.erase(Z.begin() + s0);
+				M.erase(M.begin() + s0);
+				Ind.erase(Ind.begin() + s0);
+				m--;
+			}
+			setBasic[k] = Ind[s];
+			printMTable(A, B, setBasic, Ind, Z, M);
+		}
+		else
+		{
+			if (Mflag)
+			{
+				printf("System is inconsistent");
+				return;
+			}
+			printMTable(A, B, setBasic, Ind, Z, M);
+			printSolution(B, setBasic, Z[m], m);
+			if (countSol != n)
+			{
+				vector<ll> temp(n);
+				for (ll i = 0; i < n; i++) temp[i] = setBasic[i];
+				for (ll j = 0; j < m; j++)
+				{
+					if (find(temp.begin(), temp.end(), j) == temp.end() && Z[j].num == 0)
+					{
+						k = nextSolution(A, B, j);
+						calculateMTable(A, B, Z, M, k, j);
+						setBasic[k] = j;
+						printMTable(A, B, setBasic, Ind, Z, M);
+						printSolution(B, setBasic, Z[m], m);
+					}
+				}
+			}
+			return;
+		}
+	}
+}
+
+
+int main()
+{
+	system("chcp 1251>nul");
+	ifstream cin("In3.txt");
+	ll n, m, k;
+	cin >> n >> m;
+	vector<vector<simp_frac> > A(n);
+	vector<simp_frac> B(n);
+	vector<simp_frac> Z(m);
+	vector<simp_frac> M(m);
+	vector<ll> setBasic;
+	for (ll i = 0; i < n; i++)
+	{
+		A[i] = vector<simp_frac>(m);
+		for (ll j = 0; j < m; j++)
+		{
+			cin >> k;
+			A[i][j] = simp_frac(k);
+		}
+		cin >> k;
+		B[i] = simp_frac(k);
+		if (B[i].num < 0) for (ll j = 0; j < m; j++) A[i][j].num *= -1;
+	}
+	for (ll j = 0; j < m; j++)
+	{
+		cin >> k;
+		Z[j] = simp_frac(k);
+		M[j] = simp_frac(0);
+	}
+	printMatr(A, B);
+	printf("Z=0");
+	for (ll j = 0; j < Z.size(); j++) printf("+(%lli/%lli)x%lli", Z[j].num, Z[j].den, j + 1);
+	printf(";\n\n");
+	JordanGauss(A, B, setBasic);
+	n = A.size();
+	createMTask(A, B, Z, M, setBasic);
+	printMatr(A, B);
+	printf("Z=%lli/%lli", Z[Z.size() - 1].num, Z[Z.size() - 1].den);
+	for (ll j = 0; j < Z.size() - 1; j++) printf("+(%lli/%lli)x%lli", Z[j].num, Z[j].den, j + 1);
+	printf(";\n");
+	printf("M=%lli/%lli", M[M.size() - 1].num, M[M.size() - 1].den);
+	for (ll j = 0; j < M.size() - 1; j++) printf("+(%lli/%lli)x%lli", M[j].num, M[j].den, j + 1);
+	printf(";\n\n");
+	MTable(A, B, Z, M, setBasic, m);
+}
