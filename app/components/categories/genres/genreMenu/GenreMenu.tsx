@@ -8,7 +8,6 @@ type Props = {}
 const GenreMenu: FC = (props: Props) => {
 	const { isLoading, data } = usePopularGenres()
 
-	console.log('data', data)
 
 	return isLoading ? (
 		<div>Loading...</div>

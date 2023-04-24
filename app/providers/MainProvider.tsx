@@ -7,10 +7,12 @@ import ReduxToastr from '@/components/ui/ReduxToastr'
 
 import { store } from '@/store/store'
 
+import AuthProvider from './AuthProvider/AuthProvider'
 import HeadProvider from './HeadProvider/HeadProvider'
 
 type Props = {
 	children: any
+	Component: any
 }
 
 const queryClient = new QueryClient({
@@ -21,13 +23,15 @@ const queryClient = new QueryClient({
 	},
 })
 
-const MainProvider: FC<Props> = ({ children }) => {
+const MainProvider: FC<Props> = ({ children, Component }) => {
 	return (
 		<HeadProvider>
 			<Provider store={store}>
 				<QueryClientProvider client={queryClient}>
 					<ReduxToastr />
-					<Layout>{children}</Layout>
+					<AuthProvider Component={Component}>
+						<Layout>{children}</Layout>
+					</AuthProvider>
 				</QueryClientProvider>
 			</Provider>
 		</HeadProvider>
