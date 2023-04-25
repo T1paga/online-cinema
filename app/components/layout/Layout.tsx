@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { FC } from 'react'
 
 import styles from './Layout.module.scss'
@@ -9,15 +10,21 @@ export interface LayoutProps {
 }
 
 const Layout: FC<LayoutProps> = ({ children }) => {
-	return (
-		<div className={styles.layout}>
-			<Navigation />
-			<div className={styles.main}>
-				<Header />
-				<div className={styles.childrenBlock}>{children}</div>
+	const { pathname } = useRouter()
+	const isNotLayout = pathname === '/auth' || pathname === '/admin'
+	if (!isNotLayout)
+		return (
+			<div className={styles.layout}>
+				<Navigation />
+				<div className={styles.main}>
+					<Header />
+					<div className={styles.childrenBlock}>{children}</div>
+				</div>
 			</div>
-		</div>
-	)
+		)
+	else {
+		return <div>{children}</div>
+	}
 }
 
 export default Layout

@@ -13,6 +13,7 @@ import HeadProvider from './HeadProvider/HeadProvider'
 type Props = {
 	children: any
 	Component: any
+	notVisible?: boolean
 }
 
 const queryClient = new QueryClient({

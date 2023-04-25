@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
@@ -77,8 +78,8 @@ const Auth: FC = () => {
 				<div className={styles.image}>
 					<Image
 						src={spider}
-						width={500}
-						height={500}
+						width="0"
+						height="0"
 						alt="note"
 						draggable={false}
 					/>

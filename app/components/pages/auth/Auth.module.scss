@@ -1,5 +1,5 @@
 .wrapper {
-	@apply w-full flex justify-between items-start;
+	@apply w-full h-full flex justify-between;
 	> form {
 		@apply w-1/2 flex-center flex-col items-start;
 		h2 {
@@ -11,8 +11,12 @@
 		}
 	}
 
+	.image {
+		@apply w-1/2;
+	}
+
 	img {
-		@apply rounded-lg px-5;
+		@apply w-full h-full rounded-lg;
 	}
 }
 
