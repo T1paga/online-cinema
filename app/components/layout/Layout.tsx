@@ -11,7 +11,9 @@ export interface LayoutProps {
 
 const Layout: FC<LayoutProps> = ({ children }) => {
 	const { pathname } = useRouter()
-	const isNotLayout = pathname === '/auth' || pathname === '/admin'
+	console.log(pathname)
+	const isNotLayout =
+		pathname === '/auth' || pathname.includes('admin') || pathname === '/404'
 	if (!isNotLayout)
 		return (
 			<div className={styles.layout}>
