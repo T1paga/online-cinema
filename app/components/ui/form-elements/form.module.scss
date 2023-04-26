@@ -1,5 +1,5 @@
 .common {
-	@apply relative border-b border-gray-100 transition-colors focus-within:border-active w-full max-w-[350px];
+	@apply w-2/3 mx-auto relative border-b border-gray-100 transition-colors focus-within:border-active w-full max-w-[350px];
 
 	> label {
 		@apply block w-full;

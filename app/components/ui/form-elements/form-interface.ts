@@ -1,4 +1,4 @@
-import { Editor, EditorState } from 'draft-js'
+import { EditorProps } from 'draft-js'
 import { ButtonHTMLAttributes, CSSProperties, InputHTMLAttributes } from 'react'
 import { FieldError } from 'react-hook-form'
 
