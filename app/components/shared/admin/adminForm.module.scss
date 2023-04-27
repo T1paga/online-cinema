@@ -1,5 +1,5 @@
 .form {
-	@apply mt-12 w-2/3 mx-auto;
+	@apply mt-12 w-2/3 mx-auto flex flex-col justify-center items-center;
 	.fields {
 		@apply flex items-center flex-wrap justify-between;
 		> div {

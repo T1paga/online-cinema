@@ -29,3 +29,42 @@
 .button {
 	@apply bg-active p-2 rounded-xl px-4;
 }
+
+.uploadField {
+	@apply relative;
+	.uploadFlex {
+		@apply flex w-2/3 mx-auto flex-center;
+
+		> .uploadImageContainer {
+			@apply shrink-0 relative w-24 h-24;
+
+			img {
+				@apply image-like-bg rounded-md;
+			}
+
+			> span {
+				// @apply animate-fade;
+			}
+		}
+
+		> label {
+			@apply block mr-6;
+
+			.error {
+				@apply relative -bottom-3;
+			}
+
+			> span {
+				@apply text-xs uppercase text-gray-200 block mb-4;
+			}
+
+			> input {
+				@apply block w-full text-sm text-gray-200 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-active opacity-70 file:text-white transition-opacity;
+			}
+
+			&:hover > input {
+				@apply opacity-100;
+			}
+		}
+	}
+}
