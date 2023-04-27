@@ -21,3 +21,11 @@
 .error {
 	@apply absolute -bottom-6 left-0 text-sm w-full text-danger-600;
 }
+
+.editor {
+	@apply bg-gray-200 mt-5 min-h-[200px] max-h-[400px] rounded-lg p-2;
+}
+
+.button {
+	@apply bg-active p-2 rounded-xl px-4;
+}

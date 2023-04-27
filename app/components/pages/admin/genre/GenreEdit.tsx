@@ -17,8 +17,6 @@ import generateSlug from '@/utils/string/generateSlug'
 import { IGenreEditInput } from './genre-edit.interface'
 import { useGenreEdit } from './useGenreEdit'
 
-// "^[./]((?!scss).)*$",
-
 const DynamicTextEditor = dynamic(
 	() => import('@/ui/form-elements/TextEditor'),
 	{
@@ -43,7 +41,7 @@ const GenreEdit: FC = () => {
 	return (
 		<Meta title="Edit genre">
 			<AdminNavigation />
-			<h2>edit genre</h2>
+			{/* <h2>edit genre</h2> */}
 			<form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
 				{isLoading ? (
 					<div>123</div>
@@ -102,7 +100,7 @@ const GenreEdit: FC = () => {
 								},
 							}}
 						/>
-						<Button>Update</Button>
+						<Button className={formStyles.button}>Update</Button>
 					</>
 				)}
 			</form>

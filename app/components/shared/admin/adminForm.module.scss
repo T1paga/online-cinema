@@ -1,5 +1,5 @@
 .form {
-	@apply mt-12;
+	@apply mt-12 w-2/3 mx-auto;
 	.fields {
 		@apply flex items-center flex-wrap justify-between;
 		> div {
@@ -8,6 +8,6 @@
 	}
 
 	> button {
-		@apply mt-10;
+		@apply mt-10 bg-active p-5 rounded-xl min-w-[150px] mx-auto flex justify-center;
 	}
 }
