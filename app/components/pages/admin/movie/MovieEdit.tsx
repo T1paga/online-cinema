@@ -64,6 +64,13 @@ const MovieEdit: FC = () => {
 							error={errors.slug}
 						/>
 						<Field
+							{...register('description', {
+								required: 'description is required!',
+							})}
+							placeholder="description"
+							error={errors.description}
+						/>
+						<Field
 							{...register('parameters.country', {
 								required: 'Country is required!',
 							})}

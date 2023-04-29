@@ -1,6 +1,6 @@
 .header {
-	@apply fixed flex-center-between top-0 left-[190px] xl:left-[15%] 2xl:left-[230px] gap-[145px]
-	w-[calc(100vw-190px)] xl:w-[calc(100vw-15%)] 2xl:w-[calc(100vw-230px)] z-20;
+	@apply flex-center-between top-0 left-[190px] xl:left-[15%] 2xl:left-[230px] gap-[145px]
+	w-[calc(100vw-190px)] xl:w-[calc(100vw-15%)] 2xl:w-[calc(100vw-230px)] z-20 bg-gray-300;
 	padding: 44px 51px 40px 37px;
 }
 

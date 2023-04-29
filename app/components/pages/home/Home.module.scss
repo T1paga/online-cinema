@@ -1,3 +1,7 @@
 .home {
-	@apply flex-center-between;
+	@apply flex justify-between;
+}
+
+.mainContent {
+	@apply flex flex-col items-start w-full h-full p-5;
 }
