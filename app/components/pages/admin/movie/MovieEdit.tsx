@@ -3,6 +3,7 @@ import { FC } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
 import formStyles from '@/components/shared/admin/adminForm.module.scss'
+import Heading from '@/components/ui/Heading/Heading'
 
 import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import Button from '@/ui/form-elements/Button'
@@ -42,7 +43,7 @@ const MovieEdit: FC = () => {
 	return (
 		<Meta title="Edit movie">
 			<AdminNavigation />
-			<h2>edit movie</h2>
+			<Heading text="edit movie" />
 			{isLoading ? (
 				// <SkeletonLoader count={5} />
 				<div>123</div>

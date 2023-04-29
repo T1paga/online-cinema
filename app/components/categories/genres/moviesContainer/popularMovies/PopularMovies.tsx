@@ -1,6 +1,8 @@
 import { FC } from 'react'
 import { useQuery } from 'react-query'
 
+import SkeletonLoader from '@/components/ui/SkeletonLoader'
+
 import { MovieService } from '@/services/movie.service'
 
 import MovieList from '../movieList/MovieList'

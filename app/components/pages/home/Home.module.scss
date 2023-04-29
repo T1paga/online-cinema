@@ -5,3 +5,7 @@
 .mainContent {
 	@apply flex flex-col items-start w-full h-full p-5;
 }
+
+.cardsBlock {
+	@apply w-full;
+}

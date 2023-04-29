@@ -41,7 +41,6 @@ const GenreEdit: FC = () => {
 	return (
 		<Meta title="Edit genre">
 			<AdminNavigation />
-			{/* <h2>edit genre</h2> */}
 			<form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
 				{isLoading ? (
 					<div>123</div>

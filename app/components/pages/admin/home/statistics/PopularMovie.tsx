@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { FC } from 'react'
 import { useQuery } from 'react-query'
 
+import Heading from '@/components/ui/Heading/Heading'
+
 // import SkeletonLoader from '@/components/ui/skeleton-loader/SkeletonLoader'
 import { IMovie } from '@/shared/types/movie.types'
 
@@ -24,7 +26,7 @@ const PopularMovie: FC = () => {
 
 	return (
 		<div className={cn(styles.block, styles.popular)}>
-			<h2>The most popular movie</h2>
+			<Heading text="The most popular movie" />
 			{isLoading ? (
 				// <SkeletonLoader className="h-48" />
 				<div>123</div>

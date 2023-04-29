@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation'
 import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
+import Heading from '@/components/ui/Heading/Heading'
 import Button from '@/components/ui/form-elements/Button'
 
 import { useActions } from '@/hooks/useActions'
@@ -49,7 +50,7 @@ const Auth: FC = () => {
 		<Meta title="Auth">
 			<section className={styles.wrapper}>
 				<form onSubmit={handleSubmit(onSubmit)}>
-					<h2>Welcome back, my friend</h2>
+					<Heading text="Welcome back, my friend" />
 					<p>Please fill in all fields</p>
 
 					<AuthFields

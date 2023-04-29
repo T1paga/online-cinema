@@ -1,5 +1,7 @@
 import Image from 'next/image'
 
+import Heading from '@/components/ui/Heading/Heading'
+
 import text from '@/assets/big-logo-img.svg'
 import logo from '@/assets/big-logo.svg'
 
@@ -11,7 +13,7 @@ export default function Error404() {
 	return (
 		<Meta title="Page not found">
 			<div className={styles.error}>
-				<h2>404, Такой страницы не существует</h2>
+				<Heading text="404, Такой страницы не существует" />
 				<div>
 					<Image
 						src={logo}

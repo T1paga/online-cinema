@@ -12,7 +12,6 @@ const UserList: FC = () => {
 
 	return (
 		<Meta title="Users">
-			{/* <h2 className={styles.headers}>Users</h2> */}
 			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
 			<AdminTable
 				tableItems={data || []}

@@ -1,5 +1,6 @@
 import { FC } from 'react'
 
+import Heading from '@/components/ui/Heading/Heading'
 import SeeMore from '@/components/ui/SeeMore'
 
 import { IMovieList } from '../movie.types'
@@ -14,7 +15,7 @@ const MovieList: FC<{ list: IMovieList }> = ({
 }) => {
 	return (
 		<div className={styles.list}>
-			<h2>Popular movies</h2>
+			<Heading text="Popular movies" />
 			{movies.map((movie) => (
 				<MovieItem key={movie._id} movie={movie} />
 			))}
