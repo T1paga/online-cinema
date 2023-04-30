@@ -1,5 +1,11 @@
 import { FC } from 'react'
-import { BiCalendar, BiCameraMovie, BiFilm, BiHome } from 'react-icons/bi'
+import {
+	BiCalendar,
+	BiCameraMovie,
+	BiFilm,
+	BiHome,
+	BiTrendingUp,
+} from 'react-icons/bi'
 
 import styles from './Menu.module.scss'
 import MenuItem from './MenuItem'
@@ -18,8 +24,13 @@ const menuItems: MenuItemData[] = [
 	},
 	{
 		icon: <BiCameraMovie />,
-		title: 'Movies',
-		path: '/movies',
+		title: 'Fresh movies',
+		path: '/fresh',
+	},
+	{
+		icon: <BiTrendingUp />,
+		title: 'Trending movies',
+		path: '/trending',
 	},
 	{
 		icon: <BiFilm />,

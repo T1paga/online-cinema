@@ -33,7 +33,9 @@ const UploadField: FC<IUploadField> = ({
 							// <SkeletonLoader count={1} className="w-full h-full" />
 							<div>123</div>
 						) : (
-							image && <Image src={image} alt="" unoptimized />
+							image && (
+								<Image width={70} height={70} src={image} alt="" unoptimized />
+							)
 						)}
 					</div>
 				)}
