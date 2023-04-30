@@ -1,0 +1,19 @@
+.heading {
+	@apply mb-3;
+}
+
+.movies {
+	@apply flex flex-wrap mt-8 justify-center;
+
+	> a {
+		@apply mr-8;
+	}
+
+	> a:nth-child(3n) {
+		@apply mr-0;
+	}
+}
+
+.button {
+	@apply bg-active py-2 px-10;
+}
