@@ -1,9 +1,9 @@
+import Profile from '@/components/pages/profile/Profile'
+
 import { NextPageAuth } from '@/shared/types/auth.types'
 
-type Props = {}
-
-const ProfilePage: NextPageAuth = (props: Props) => {
-	return <div>profilePage</div>
+const ProfilePage: NextPageAuth = () => {
+	return <Profile />
 }
 
 ProfilePage.isOnlyUser = true
