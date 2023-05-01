@@ -52,6 +52,7 @@
     "@types/html-to-draftjs": "^1.4.0",
     "@types/js-cookie": "^3.0.3",
     "@types/react-draft-wysiwyg": "^1.13.4",
-    "@types/react-redux-toastr": "^7.6.2"
+    "@types/react-redux-toastr": "^7.6.2",
+    "@types/react-star-rating-component": "^1.4.1"
   }
 }

@@ -10,7 +10,7 @@ const MoviesContainer = (props: Props) => {
 	return (
 		<div className={styles.Container}>
 			<PopularMovies />
-			{/* <FavoriteMovies /> */}
+			<FavoriteMovies />
 		</div>
 	)
 }

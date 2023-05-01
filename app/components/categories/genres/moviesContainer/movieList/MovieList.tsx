@@ -15,7 +15,7 @@ const MovieList: FC<{ list: IMovieList }> = ({
 }) => {
 	return (
 		<div className={styles.list}>
-			<Heading text="Popular movies" />
+			<Heading text={title} />
 			{movies.map((movie) => (
 				<MovieItem key={movie._id} movie={movie} />
 			))}

@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import StarRating from 'react-star-rating-component'
 
-// import AuthButton from '@/ui/video-player/AuthPlaceholder/AuthButton'
+import AuthButton from '@/ui/video-player/AuthPlaceholder/AuthButton'
 import { useAuth } from '@/hooks/useAuth'
 
 import styles from './RateMovie.module.scss'
@@ -29,8 +29,7 @@ const RateMovie: FC<{ slug: string; _id: string }> = ({ slug, _id }) => {
 					)}
 				</>
 			) : (
-				// <AuthButton slug={slug} />
-				<div>123</div>
+				<AuthButton slug={slug} />
 			)}
 		</div>
 	)
