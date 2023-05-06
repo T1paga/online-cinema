@@ -5,6 +5,7 @@ import { IGenreEditInput } from '@/components/pages/admin/genre/genre-edit.inter
 import { IGenre } from '@/shared/types/movie.types'
 
 import { getGenresUrl } from '@/configs/api.config'
+import { ICollection } from '@/components/pages/collections/collections.types'
 
 export const GenreService = {
 	async getBySlug(slug: string) {
@@ -34,11 +35,11 @@ export const GenreService = {
 	},
 
 	async getCollections() {
-		return axiosClassic.get<any[]>(getGenresUrl('/collections'))
+		return axiosClassic.get<ICollection[]>(getGenresUrl('/collections'))
 	},
 
 	async getById(_id: string) {
-		return axios.get<any>(getGenresUrl(`/${_id}`))
+		return axios.get<IGenreEditInput>(getGenresUrl(`/${_id}`))
 	},
 
 	async getPopularGenres(limit: number = 4) {

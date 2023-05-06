@@ -26,15 +26,14 @@ const GenreMenu: FC = (props: Props) => {
 				// 	{genre.title}
 				// 	<span></span>
 				// </label>
-				<>
-					<Link href={genre.link}>
-						<span key={genre.title} className={styles.myLabel}>
-							{genre.title}
 
-							<BiArea size={25} color={'#3DD2CC'} />
-						</span>
-					</Link>
-				</>
+				<Link href={genre.link} key={genre.title}>
+					<span className={styles.myLabel}>
+						{genre.title}
+
+						<BiArea size={25} color={'#3DD2CC'} />
+					</span>
+				</Link>
 			))}
 		</div>
 	)

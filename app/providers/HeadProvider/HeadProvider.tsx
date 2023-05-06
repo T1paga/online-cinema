@@ -24,6 +24,8 @@ const HeadProvider: FC = ({ children }: any) => {
 
 				<Favicons />
 
+				@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 				<meta name="theme-color" content={'#181B1E'} />
 				<meta name="msapplication-navbutton-color" content={'#181B1E'} />
 				<meta

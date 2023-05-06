@@ -34,8 +34,8 @@ const menuItems: MenuItemData[] = [
 	},
 	{
 		icon: <BiFilm />,
-		title: 'TV Series',
-		path: '/series',
+		title: 'Discovery',
+		path: '/discovery',
 	},
 	{
 		icon: <BiCalendar />,
