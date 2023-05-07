@@ -1,14 +1,14 @@
 import parse from 'html-react-parser'
 import { FC } from 'react'
 
+import styles from './Heading.module.scss'
+
 const Description: FC<{ text: string; className?: string }> = ({
 	text,
 	className = '',
 }) => {
 	return (
-		<div
-			className={`text-lg font-light text-white text-opacity-60 ${className}`}
-		>
+		<div className={styles.description}>
 			<p>{parse(text)}</p>
 		</div>
 	)

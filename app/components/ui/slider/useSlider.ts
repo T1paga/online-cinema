@@ -5,10 +5,10 @@ export const useSlider = (length: number) => {
 	const [slideIn, setSlideIn] = useState(true)
 
 	const isExistsNext = currentIndex + 1 < length
-	const isExistsPrev = currentIndex ? currentIndex - 1 < length : false
+	const isExistsPrev = currentIndex > 0
 
 	const handleArrowClick = (direction: 'next' | 'prev') => {
-		const newIndex = direction === 'next' ? currentIndex + 1 : currentIndex - 1
+		const newIndex = direction === 'prev' ? currentIndex - 1 : currentIndex + 1
 		setSlideIn(false)
 
 		setTimeout(() => {

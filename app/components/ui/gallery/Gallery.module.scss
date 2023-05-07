@@ -1,7 +1,7 @@
 @import '/app/assets/styles/variables';
 
 .gallery {
-	@apply flex overflow-x-auto flex-nowrap py-3 w-full;
+	@apply flex overflow-x-auto flex-nowrap py-3 w-full flex-center;
 	-webkit-overflow-scrolling: touch;
 
 	&::-webkit-scrollbar {

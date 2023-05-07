@@ -1,7 +1,11 @@
 @import '/app/assets/styles/variables';
 
 .banner {
-	@apply relative overflow-hidden w-4/5 mx-auto h-80 rounded-layout shadow-lg flex flex-col justify-end;
+	@apply relative overflow-hidden mx-auto h-[500px] rounded-layout shadow-lg flex flex-col justify-end p-5 w-[90%];
+
+	img {
+		@apply object-cover;
+	}
 
 	@include fade-bg-gradient();
 }

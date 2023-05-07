@@ -35,7 +35,7 @@ const menuItems: MenuItemData[] = [
 	{
 		icon: <BiFilm />,
 		title: 'Discovery',
-		path: '/discovery',
+		path: '/genreCollection',
 	},
 	{
 		icon: <BiCalendar />,

@@ -1,3 +1,7 @@
 .heading {
-	@apply font-semibold text-[25px] leading-[38px] mt-5;
+	@apply font-semibold text-[25px] leading-[38px] mt-5 flex-center;
+}
+
+.description {
+	@apply flex-center;
 }

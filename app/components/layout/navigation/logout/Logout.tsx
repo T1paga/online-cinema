@@ -17,11 +17,11 @@ const Logout = (props: Props) => {
 	}
 
 	return (
-		<a className={styles.navButton} onClick={handleLogout}>
+		<span className={styles.navButton} onClick={handleLogout}>
 			<MenuItem path="/exit" title="Log out">
 				<BiLogOut />
 			</MenuItem>
-		</a>
+		</span>
 	)
 }
 

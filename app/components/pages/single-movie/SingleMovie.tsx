@@ -12,6 +12,7 @@ import { Meta } from '@/utils/meta/Meta'
 import Content from './Content/Content'
 import styles from './SingleMovie.module.scss'
 import { useUpdateCountOpened } from './useUpdateCountOpened'
+import Heading from '@/components/ui/Heading/Heading'
 
 const DynamicPlayer = dynamic(() => import('@/ui/video-player/VideoPlayer'), {
 	ssr: false,
@@ -37,7 +38,7 @@ const SingleMovie: FC<{ movie: IMovie; similarMovies: IGalleryItem[] }> = ({
 			<DynamicPlayer videoSource={movie.videoUrl} slug={movie.slug} />
 
 			<div>
-				<p>Similar</p>
+				<Heading text="Similar" />
 				<Gallery items={similarMovies} />
 			</div>
 
